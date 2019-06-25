@@ -1,3 +1,9 @@
+<?php include 'database.php'; ?>
+<?php
+	//Create Select Query
+	$query ="SELECT * FROM shouts";
+	$shouts = mysqli_query($con, $query);
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,14 +18,11 @@
 			</header>
 			<div id="shouts">
 				<ul>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
-					<li class="shout"><span>10.45pm - </span>Brad: Hey </li>
+				<?php while($row = mysqli_fetch_assoc($shouts)) : ?>
+					<li class="shout"><span>
+						<?php echo $row['time'] ?> - </span><b><?php echo $row['user'] ?>:</b> <?php echo $row['message'] ?>  </li>
+				<?php endwhile; ?>
+					
 				</ul>
 			</div>
 			<div id="input">
