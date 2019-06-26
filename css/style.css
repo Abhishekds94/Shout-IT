@@ -77,3 +77,10 @@ header h1{
 		width:98%;
 	}
 }
+
+.error{
+	background:red;
+	color:#ffffff;
+	padding:5px;
+	margin-bottom:20px;
+}
